@@ -36,23 +36,23 @@ function draw() {
     ball.bounceOff(block2);
     ball.bounceOff(block3);
     ball.bounceOff(block4);
-    if(ball.isTouching(block4)){
-      ball.shapeColor=rgb(728,45,10)
+    if(ball.isTouching(block1)){
+      ball.shapeColor=rgb(73,38,40)
       music.play();
     }    
     
-    if(ball.isTouching(block1)){
-       ball.shapeColor=rgb(73,38,40)
+    if(ball.isTouching(block2)){
+       ball.shapeColor=rgb(0,0,250)
       ball.velocityY=0
       ball.velocityX=0
       music.stop();
     }
-    if(ball.isTouching(block2)){
-      ball.shapeColor=rgb(0,0,250)
-      
-    }
     if(ball.isTouching(block3)){
       ball.shapeColor=rgb(50,150,29)
+      
+    }
+    if(ball.isTouching(block4)){
+      ball.shapeColor=rgb(728,45,10)
       
     }
     
