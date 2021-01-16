@@ -1,7 +1,7 @@
 var canvas;
+var block1,block2,block3,block4;
+var ball, edges;
 var music;
-var block1,block2,block3,block4,ball,obj1,obj2;
-var edges;
 
 function preload(){
     music = loadSound("music.mp3");
@@ -11,40 +11,53 @@ function preload(){
 function setup(){
     canvas = createCanvas(800,600);
 
-    //create 4 different surfaces
-  block1=createSprite(100,550,100,10);
-  block1.shapeColor=(80,0,0)
-  block2=createSprite(200,550,100,10);
-  block2.shapeColor=rgb(0,0,100
-  block3=createSprite(300,550,100,10);
-  block3.shapeColor=rgb(50,90,150)
-  block4=createSprite(400,550,10,10);
-  block4.shapeColor=rgb(100,50,40
-  ball=createSprite(random(20,750),200,10,10);
-  ball.shapeColor=rgb(0,90,0)
-  ball.velocityY=random(7,20);
-  ball.velocityX=random(7,20);
-    //create box sprite and give velocity
+    block1 = createSprite(0,580,360,30);
+    block1.shapeColor = rgb(0,0,255);
+
+    block2 = createSprite(295,580,200,30);
+    block2.shapeColor = rgb(255,128,0);
+
+    block3 = createSprite(515,580,200,30);
+    block3.shapeColor = rgb(153,0,76);
+
+    block4 = createSprite(740,580,220,30);
+    block4.shapeColor = rgb(0,100,0);
+
+    ball = createSprite(random(20,750),100, 40,40);
+    ball.shapeColor = rgb(255,255,255);
+    ball.velocityX = 4;
+    ball.velocityY = 9;
 
 }
 
 function draw() {
     background(rgb(169,169,169));
-     edges =createEdgeSprites();
-    ball.bounceOff(edges)
-    ball.bounceOff(Edges);
-    ball.bounceOff(block1);
-    ball.bounceOff(block2);
-    ball.bounceOff(block3);
-    ball.bounceOff(block4);
-    if(ball.isTouching(block4)){
-      ball.shapeColor=rgb(100,50,40)
-      music.play();
-    }    
+    edges=createEdgeSprites();
+    ball.bounceOff(edges);
 
-    
+    if(block1.isTouching(ball) && ball.bounceOff(block1)){
+        ball.shapeColor = rgb(0,0,255);
+        music.play();
+    }
+
+    if(block2.isTouching(ball)){
+        ball.shapeColor = rgb(255,128,0);
+        ball.velocityX = 0;
+        ball.velocityY = 0;
+        music.stop();
+    }
+
+    if(block3.isTouching(ball) && ball.bounceOff(block3)){
+        ball.shapeColor = rgb(153,0,76);
+    }
+
+    if(block4.isTouching(ball) && ball.bounceOff(block4)){
+        ball.shapeColor = rgb(0,100,0);
+    }
+
     drawSprites();
-  }
+}
+
 
 
 
