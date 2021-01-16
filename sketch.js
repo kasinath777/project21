@@ -21,7 +21,6 @@ function setup(){
   block4=createSprite(400,590,100,50);
   block4.shapeColor=rgb(728,45,10)
   ball=createSprite(random(20,750),200,10,10);
-  ball.shapeColor=rgb(100,200,36)
   ball.velocityY=random(7,20);
   ball.velocityX=random(7,20);
     //create box sprite and give velocity
